@@ -720,6 +720,7 @@ ARG INSTALL_YARN=false
 ARG YARN_VERSION=latest
 ENV YARN_VERSION ${YARN_VERSION}
 
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --import
 RUN if [ ${INSTALL_YARN} = true ]; then \
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && \
     if [ ${YARN_VERSION} = "latest" ]; then \
